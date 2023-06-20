@@ -2,6 +2,7 @@
 
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap');
 
@@ -21,7 +22,7 @@
 
         .container {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             flex-direction: column;
             background-color: white;
@@ -31,13 +32,15 @@
 
         .form-upload {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             flex-direction: column;
         }
 
         .btn {
             display: flex;
+            align-items: center;
+            justify-content: center;
             padding: 10px 30px;
             border-radius: 5px;
             background-color: #084cdf;
@@ -45,6 +48,11 @@
             border: none;
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
+        }
+
+        .btn ion-icon {
+            margin-left: 10px;
+            font-size: 18px;
         }
 
         .drop-container {
@@ -81,7 +89,7 @@
             transition: color .2s ease-in-out;
         }
 
-        input[type=file]{
+        input[type=file] {
             width: 350px;
             max-width: 100%;
             color: #444;
@@ -103,11 +111,26 @@
             transition: background .2s ease-in-out;
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
+            content: "Chọn ảnh"
         }
 
         input[type=file]::file-selector-button:hover {
             background: #e6e6e6
         }
+
+        .result{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 250px;
+            border-radius: 10px;
+        }
+
+        .result h4{
+            margin-top: 10px;
+        }
+
     </style>
     <script>
         $(document).ready(function () {
@@ -135,17 +158,21 @@
 
 <body>
     <div class="container">
-        <h1 class="text-center">Phân loại rác sử dụng CNN</h1>
+        <h2 class="text-center">Phân loại rác sử dụng CNN</h2>
         <form id="image-form" class="form-upload" enctype="multipart/form-data">
             <label for="input-img" class="drop-container">
                 <span class="drop-title">Drop files here</span>
                 or
                 <input type="file" name="image" id="input-img">
             </label>
-            <button class="btn btn-primary" type="submit">Phân loại</button>
+            <button class="btn btn-primary" type="submit">Phân loại<ion-icon
+                    name="arrow-forward-outline"></ion-icon></button>
         </form>
-        <p id="result" class="text-center mt-3"></p>
-        <img id="uploaded-image" src="" class="img-fluid mx-auto d-block mt-3">
+    </div>
+    <div class="result">
+        <img id="uploaded-image" src="https://36b9-35-245-63-199.ngrok-free.app/uploaded_image/R_9.jpg"
+            class="img-fluid mx-auto d-block mt-3">
+        <h4 id="result" class="text-center mt-3">Rác thải tái chế</h4>
     </div>
 </body>
 
