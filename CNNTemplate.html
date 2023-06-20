@@ -152,7 +152,7 @@
                     processData: false,
                     contentType: false,
                     success: function (response) {
-                        $('#result').text('Kết quả: ' + response.result);
+                        $('#result').text('Kết quả: ' + response.result + ' (' + response.accuracy + ')');
                         $('#uploaded-image').attr('src', response.image_url);
                     },
                     error: function (error) {
